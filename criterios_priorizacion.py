@@ -79,6 +79,12 @@ def calculate_safety(record: dict[str, Any], cfg: dict) -> dict[str, Any]:
     }
 
 
+
+def calculate_s1(record: dict[str, Any], cfg: dict) -> dict[str, Any]:
+    """Calcula únicamente Seguridad 1 para las actualizaciones DRE/UGEL."""
+    result = calculate_safety(record, cfg)
+    return {"rd": result["rd"], "ob": result["ob"], "s1": result["s1"]}
+
 def validate_criterion_weights(weights: dict[str, float], cfg: dict) -> tuple[bool, str]:
     for key, definition in cfg["criterion_weights"].items():
         value = float(weights.get(key, 0))
