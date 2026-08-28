@@ -1,0 +1,72 @@
+{
+  "version": "demo-2026-08",
+  "nota": "Parámetros demostrativos. Validar técnicamente rangos, subpesos y mapeos antes de producción.",
+  "criterion_weights": {
+    "seguridad": {"label": "Seguridad", "default": 40, "min": 35, "max": 50},
+    "eficiencia": {"label": "Eficiencia", "default": 20, "min": 15, "max": 25},
+    "equidad": {"label": "Equidad", "default": 25, "min": 20, "max": 30},
+    "territorio": {"label": "Territorio", "default": 15, "min": 10, "max": 20}
+  },
+  "subcriterion_weights": {
+    "seguridad": {"s1": 0.40, "s2": 0.15, "s3": 0.15, "s4": 0.20, "s5": 0.10},
+    "equidad": {
+      "eq1_pobreza": 0.30,
+      "eq2_discapacidad": 0.20,
+      "eq3_ruralidad": 0.20,
+      "eq4_pueblos_originarios": 0.15,
+      "eq5_ambitos_prioritarios": 0.15
+    },
+    "territorio": {"t1": 0.15, "t2": 0.20, "t3": 0.15, "t4": 0.15, "t5": 0.20, "t6": 0.15}
+  },
+  "security_rule": {
+    "critical_s1_threshold": 0.80,
+    "order_critical_first": true
+  },
+  "security_recodes": {
+    "material": {
+      "Adobe/tapial/quincha/piedra con barro": 1.00,
+      "Madera rústica/material provisional": 0.85,
+      "Albañilería sin confinamiento": 0.60,
+      "Albañilería confinada/pórticos/sistema dual": 0.20
+    },
+    "normativa": {
+      "Anterior a primera norma sismorresistente": 1.00,
+      "Versión derogada de E.030": 0.60,
+      "Versión vigente": 0.00
+    },
+    "conservacion": {
+      "Malo o muy malo": 1.00,
+      "Regular": 0.50,
+      "Bueno": 0.00
+    },
+    "zona_sismica": {
+      "Zona 4": 1.00,
+      "Zona 3": 0.78,
+      "Zona 2": 0.56,
+      "Zona 1": 0.22
+    },
+    "nivel_ordinal": {
+      "Muy alto": 1.00,
+      "Alto": 0.75,
+      "Medio": 0.50,
+      "Bajo": 0.25,
+      "Muy bajo": 0.00
+    },
+    "mm_ocurrencia": {
+      "Dentro de zona crítica": 1.00,
+      "Peligro inventariado a menos de 500 m": 0.75,
+      "Peligro inventariado entre 500 y 1,000 m": 0.50,
+      "Sin ocurrencias registradas": 0.00
+    },
+    "heladas_friaje": {
+      "Heladas y friaje (alto/muy alto)": 1.00,
+      "Solo heladas (alto/muy alto)": 0.85,
+      "Solo friaje (alto/muy alto)": 0.85,
+      "No focalizado": 0.00
+    }
+  },
+  "normalization": {
+    "terciles": {"superior": 1.00, "medio": 0.50, "inferior": 0.00},
+    "territory_demo_rank4": {"1": 1.00, "2": 0.67, "3": 0.33, "4": 0.00}
+  }
+}
